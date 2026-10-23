@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FCFBF5;
+  font-family: "Quicksand", sans-serif;
+}
+
+.luma-preview {
+  width: 100%;
+  padding: 10px 24px 35px;
+}
+
+.luma-container {
+  max-width: 1320px;
+  margin: auto;
+}
+
+/* BAŞLIK */
+
+.luma-heading {
+  margin-bottom: 24px;
+}
+
+.luma-heading h2 {
+  margin: 0 0 12px;
+  color: #41409A;
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.luma-heading p {
+  margin: 0;
+  color: #414141;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* KARTLAR */
+
+.luma-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.luma-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E8E4DD;
+  border-radius: 22px;
+}
+
+.luma-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.luma-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.luma-count {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: #41409A;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.luma-count strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* SES OYNATICI */
+
+.luma-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 72px;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 16px;
+  background: #F4F2F9;
+}
+
+.luma-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #41409A;
+  cursor: pointer;
+}
+
+.luma-play-symbol {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #FFFFFF;
+}
+
+.luma-play.playing .luma-play-symbol {
+  width: 12px;
+  height: 15px;
+  margin-left: 0;
+  border: 0;
+  border-left: 4px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
+}
+
+.luma-track {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.luma-track-title {
+  color: #41409A;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.luma-progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  accent-color: #41409A;
+  cursor: pointer;
+}
+
+/* ALT BUTON */
+
+.luma-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 24px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: #41409A;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.luma-cta:hover {
+  background: #33327D;
+}
+
+.luma-cta-arrow {
+  font-size: 24px;
+}
+
+/* MOBİL */
+
+@media (max-width: 767px) {
+
+  .luma-preview {
+    padding: 8px 14px 30px;
+  }
+
+  .luma-heading {
+    margin-bottom: 18px;
+  }
+
+  .luma-heading h2 {
+    font-size: 28px;
+  }
+
+  .luma-heading p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .luma-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .luma-card {
+    border-radius: 13px;
+  }
+
+  .luma-card-body {
+    padding: 9px 7px;
+  }
+
+  .luma-count {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .luma-count strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 24px;
+  }
+
+  .luma-player {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 140px;
+    padding: 10px 6px;
+    border-radius: 10px;
+  }
+
+  .luma-play {
+    width: 36px;
+    height: 36px;
+  }
+
+  .luma-play-symbol {
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 10px;
+  }
+
+  .luma-play.playing .luma-play-symbol {
+    width: 11px;
+    height: 14px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+  }
+
+  .luma-track {
+    width: 100%;
+    flex: 1;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .luma-track-title {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    font-size: 11px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .luma-progress {
+    height: 4px;
+  }
+
+  .luma-cta {
+    min-height: 52px;
+    margin-top: 18px;
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="luma-preview">
+  <div class="luma-container">
+
+    <header class="luma-heading">
+      <h2>LUMA'nın içinde neler var?</h2>
+      <p>MiniYo, Altın Kitaplar, Bilgi Çocuk ve Sesle Kitap'tan sevilen içerikler tek bir kutuda.</p>
+    </header>
+
+    <div class="luma-grid">
+
+      <!-- ŞARKILAR -->
+
+      <article class="luma-card">
+        <img
+          class="luma-image"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-sarki.webp"
+          alt="LUMA şarkıları"
+        >
+
+        <div class="luma-card-body">
+          <h3 class="luma-count">
+            <strong>20</strong> Şarkı
+          </h3>
+
+          <div class="luma-player">
+            <button class="luma-play" type="button" aria-label="Gezegenler şarkısını oynat">
+              <span class="luma-play-symbol"></span>
+            </button>
+
+            <div class="luma-track">
+              <span class="luma-track-title">Gezegenler</span>
+              <input class="luma-progress" type="range" min="0" max="100" value="0" aria-label="Gezegenler ilerleme">
+            </div>
+          </div>
+
+          <audio preload="none" src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/01Gezegenler-preview.mp3"></audio>
+        </div>
+      </article>
+
+      <!-- HİKAYELER -->
+
+      <article class="luma-card">
+        <img
+          class="luma-image"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-hikaye.webp"
+          alt="LUMA hikayeleri"
+        >
+
+        <div class="luma-card-body">
+          <h3 class="luma-count">
+            <strong>20</strong> Hikaye
+          </h3>
+
+          <div class="luma-player">
+            <button class="luma-play" type="button" aria-label="Nokta hikayesini oynat">
+              <span class="luma-play-symbol"></span>
+            </button>
+
+            <div class="luma-track">
+              <span class="luma-track-title">Nokta</span>
+              <input class="luma-progress" type="range" min="0" max="100" value="0" aria-label="Nokta ilerleme">
+            </div>
+          </div>
+
+          <audio preload="none" src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/18Nokta-preview.mp3"></audio>
+        </div>
+      </article>
+
+      <!-- NİNNİLER -->
+
+      <article class="luma-card">
+        <img
+          class="luma-image"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-ninni.webp"
+          alt="LUMA ninnileri"
+        >
+
+        <div class="luma-card-body">
+          <h3 class="luma-count">
+            <strong>10</strong> Ninni
+          </h3>
+
+          <div class="luma-player">
+            <button class="luma-play" type="button" aria-label="Dandini Dandini Dastana ninnisini oynat">
+              <span class="luma-play-symbol"></span>
+            </button>
+
+            <div class="luma-track">
+              <span class="luma-track-title">Dandini Dandini Dastana</span>
+              <input class="luma-progress" type="range" min="0" max="100" value="0" aria-label="Ninni ilerleme">
+            </div>
+          </div>
+
+          <audio preload="none" src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/02Dandini-Dandini-Dastana-preview.mp3"></audio>
+        </div>
+      </article>
+
+    </div>
+
+    <a
+      class="luma-cta"
+      href="https://lumaverse.net/pages/luma-icerik"
+      target="_top"
+    >
+      Tüm İçerikleri Keşfet
+      <span class="luma-cta-arrow" aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  const cards = document.querySelectorAll(".luma-card");
+
+  cards.forEach(card => {
+    const audio = card.querySelector("audio");
+    const button = card.querySelector(".luma-play");
+    const progress = card.querySelector(".luma-progress");
+
+    button.addEventListener("click", async () => {
+      if (!audio.paused) {
+        audio.pause();
+        return;
+      }
+
+      cards.forEach(otherCard => {
+        const otherAudio = otherCard.querySelector("audio");
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+        }
+      });
+
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error("Ses oynatılamadı:", audio.src, error);
+      }
+    });
+
+    audio.addEventListener("play", () => {
+      button.classList.add("playing");
+    });
+
+    audio.addEventListener("pause", () => {
+      button.classList.remove("playing");
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        progress.value = (audio.currentTime / audio.duration) * 100;
+      }
+    });
+
+    progress.addEventListener("input", () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      progress.value = 0;
+      button.classList.remove("playing");
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
