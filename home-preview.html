@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FCFBF5;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.lv-section {
+  width: 100%;
+  padding: 10px 24px 40px;
+}
+
+.lv-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* BAŞLIK */
+
+.lv-heading {
+  margin-bottom: 24px;
+}
+
+.lv-heading h2 {
+  margin: 0 0 12px;
+  color: #41409A;
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.lv-heading p {
+  margin: 0;
+  color: #414141;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* KARTLAR */
+
+.lv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.lv-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #E8E4DD;
+  border-radius: 22px;
+  background: #FFFFFF;
+}
+
+.lv-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.lv-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px;
+}
+
+.lv-count {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: #41409A;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lv-count strong {
+  font-size: 32px;
+}
+
+/* SES OYNATICISI */
+
+.lv-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 14px;
+  background: #F4F2F9;
+}
+
+.lv-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #41409A;
+  cursor: pointer;
+}
+
+.lv-icon {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #FFFFFF;
+}
+
+.lv-play.playing .lv-icon {
+  width: 12px;
+  height: 15px;
+  margin-left: 0;
+  border: 0;
+  border-left: 4px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
+}
+
+.lv-track {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 7px;
+}
+
+.lv-name {
+  color: #41409A;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.lv-progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  accent-color: #41409A;
+  cursor: pointer;
+}
+
+/* ALT BUTON */
+
+.lv-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 24px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: #41409A;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.lv-cta:hover {
+  background: #33327D;
+}
+
+.lv-cta span {
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* MOBİL */
+
+@media (max-width: 767px) {
+
+  .lv-section {
+    padding: 8px 14px 30px;
+  }
+
+  .lv-heading {
+    margin-bottom: 18px;
+  }
+
+  .lv-heading h2 {
+    font-size: 28px;
+  }
+
+  .lv-heading p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .lv-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .lv-card {
+    border-radius: 13px;
+  }
+
+  .lv-info {
+    padding: 9px 7px;
+  }
+
+  .lv-count {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .lv-count strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 24px;
+  }
+
+  .lv-player {
+    flex-direction: column;
+    gap: 8px;
+    min-height: 140px;
+    padding: 9px 5px;
+    border-radius: 10px;
+  }
+
+  .lv-play {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .lv-icon {
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 10px;
+  }
+
+  .lv-track {
+    width: 100%;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .lv-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .lv-progress {
+    height: 4px;
+  }
+
+  .lv-cta {
+    min-height: 52px;
+    margin-top: 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .lv-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .lv-grid {
+    gap: 6px;
+  }
+
+  .lv-info {
+    padding: 8px 5px;
+  }
+
+  .lv-name {
+    font-size: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="lv-section">
+  <div class="lv-container">
+
+    <div class="lv-heading">
+      <h2>LUMA'nın içinde neler var?</h2>
+      <p>
+        MiniYo, Altın Kitaplar, Bilgi Çocuk ve Sesle Kitap'tan
+        sevilen içerikler tek bir kutuda.
+      </p>
+    </div>
+
+    <div class="lv-grid">
+
+      <!-- ŞARKI -->
+      <article class="lv-card">
+        <img
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-sarki.webp"
+          alt="LUMA şarkıları"
+        >
+
+        <div class="lv-info">
+          <h3 class="lv-count"><strong>20</strong> Şarkı</h3>
+
+          <div class="lv-player">
+            <button class="lv-play" type="button" aria-label="Gezegenler oynat">
+              <span class="lv-icon"></span>
+            </button>
+
+            <div class="lv-track">
+              <span class="lv-name">Gezegenler</span>
+              <input class="lv-progress" type="range" min="0" max="100" value="0" aria-label="Gezegenler ilerleme">
+            </div>
+          </div>
+        </div>
+
+        <audio preload="none"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/01Gezegenler-preview.mp3"></audio>
+      </article>
+
+      <!-- HİKAYE -->
+      <article class="lv-card">
+        <img
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-hikaye.webp"
+          alt="LUMA hikayeleri"
+        >
+
+        <div class="lv-info">
+          <h3 class="lv-count"><strong>20</strong> Hikaye</h3>
+
+          <div class="lv-player">
+            <button class="lv-play" type="button" aria-label="Nokta oynat">
+              <span class="lv-icon"></span>
+            </button>
+
+            <div class="lv-track">
+              <span class="lv-name">Nokta</span>
+              <input class="lv-progress" type="range" min="0" max="100" value="0" aria-label="Nokta ilerleme">
+            </div>
+          </div>
+        </div>
+
+        <audio preload="none"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/18Nokta-preview.mp3"></audio>
+      </article>
+
+      <!-- NİNNİ -->
+      <article class="lv-card">
+        <img
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/luma-ninni.webp"
+          alt="LUMA ninnileri"
+        >
+
+        <div class="lv-info">
+          <h3 class="lv-count"><strong>10</strong> Ninni</h3>
+
+          <div class="lv-player">
+            <button class="lv-play" type="button" aria-label="Dandini Dandini Dastana oynat">
+              <span class="lv-icon"></span>
+            </button>
+
+            <div class="lv-track">
+              <span class="lv-name">Dandini Dandini Dastana</span>
+              <input class="lv-progress" type="range" min="0" max="100" value="0" aria-label="Ninni ilerleme">
+            </div>
+          </div>
+        </div>
+
+        <audio preload="none"
+          src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/02Dandini-Dandini-Dastana-preview.mp3"></audio>
+      </article>
+
+    </div>
+
+    <a class="lv-cta"
+       href="https://lumaverse.net/pages/luma-icerik"
+       target="_top">
+      Tüm İçerikleri Keşfet
+      <span aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<script>
+(function () {
+
+  const cards = document.querySelectorAll('.lv-card');
+
+  cards.forEach(function (card) {
+
+    const audio = card.querySelector('audio');
+    const button = card.querySelector('.lv-play');
+    const progress = card.querySelector('.lv-progress');
+
+    function updateButton() {
+      const playing = !audio.paused && !audio.ended;
+
+      button.classList.toggle('playing', playing);
+      button.setAttribute('aria-pressed', String(playing));
+    }
+
+    button.addEventListener('click', function () {
+
+      if (!audio.paused) {
+        audio.pause();
+        return;
+      }
+
+      cards.forEach(function (otherCard) {
+        const otherAudio = otherCard.querySelector('audio');
+
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+        }
+      });
+
+      audio.play().catch(function (error) {
+        console.error('Ses oynatılamadı:', error);
+        updateButton();
+      });
+    });
+
+    audio.addEventListener('play', updateButton);
+    audio.addEventListener('pause', updateButton);
+
+    audio.addEventListener('timeupdate', function () {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        progress.value = audio.currentTime / audio.duration * 100;
+      }
+    });
+
+    progress.addEventListener('input', function () {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime = Number(progress.value) / 100 * audio.duration;
+      }
+    });
+
+    audio.addEventListener('ended', function () {
+      progress.value = 0;
+      updateButton();
+    });
+
+    audio.addEventListener('error', function () {
+      console.error('MP3 yüklenemedi:', audio.currentSrc, audio.error);
+    });
+
+  });
+
+})();
+</script>
+
+</body>
+</html>
