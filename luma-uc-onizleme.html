@@ -195,6 +195,13 @@ html, body {
   background: #33327D;
 }
 
+.luma-cta-headphones {
+  display: block;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+}
+
 .luma-cta-arrow {
   font-size: 24px;
 }
@@ -298,6 +305,11 @@ html, body {
     min-height: 52px;
     margin-top: 18px;
     font-size: 16px;
+  }
+
+  .luma-cta-headphones {
+    width: 20px;
+    height: 20px;
   }
 }
 </style>
@@ -404,12 +416,32 @@ html, body {
 
     </div>
 
+    <!-- TÜM İÇERİKLERİ KEŞFET -->
+
     <a
       class="luma-cta"
       href="https://lumaverse.net/pages/luma-icerik"
       target="_top"
     >
+
+      <!-- KULAKLIK İKONU -->
+      <svg
+        class="luma-cta-headphones"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M3 14v-3a9 9 0 0 1 18 0v3"/>
+        <rect x="2" y="13" width="4" height="8" rx="2"/>
+        <rect x="18" y="13" width="4" height="8" rx="2"/>
+      </svg>
+
       Tüm İçerikleri Keşfet
+
       <span class="luma-cta-arrow" aria-hidden="true">↗</span>
     </a>
 
