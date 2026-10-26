@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#F0EEFC;font-family:Quicksand,sans-serif;color:#34336F}
+.lv-listen-v2{width:100%;padding:36px max(24px,calc((100vw - 1200px)/2)) 42px;background:#F0EEFC;overflow:hidden}.inner{max-width:1200px;margin:auto}
+h2{margin:0 0 7px!important;font:700 clamp(23px,2.2vw,29px)/1.25 Quicksand,sans-serif;color:#34336F}.subtitle{margin:0 0 16px;font:500 clamp(16px,1.5vw,19px)/1.45 Quicksand,sans-serif;color:#56547C}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;align-items:center;gap:13px;min-width:0;min-height:104px;padding:15px 17px;background:white;border-radius:22px}.info{flex:1;min-width:0}.name{font-size:clamp(15px,1.25vw,18px);line-height:1.35}.name strong{font-weight:700}.name span{font-weight:500}.credit{margin-top:5px;color:#777497;font-size:clamp(12px,1vw,15px);font-weight:500;line-height:1.35}
+.play{display:flex;flex:0 0 64px;width:64px;height:64px;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:#41409A;color:#fff;cursor:pointer;appearance:none;-webkit-appearance:none}.play svg{width:28px;height:28px}.pause-icon{display:none}.card.playing .play-icon{display:none}.card.playing .pause-icon{display:block}.card audio{display:none}.card.error audio{display:block;width:100%;max-width:100%;height:42px}.card.error .play{display:none}.footer{display:flex;justify-content:flex-end;margin-top:15px}.all{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid #41409A;border-radius:999px;color:#41409A;text-decoration:none;font:700 13px/1.3 Quicksand,sans-serif}.all:hover{background:#41409A;color:#fff}
+@media(max-width:767px){.lv-listen-v2{padding:27px 32px 34px}h2{font-size:23px!important}.subtitle{font-size:17px;margin-bottom:16px}.grid{grid-template-columns:1fr;gap:12px}.card{min-height:72px;padding:10px 12px;border-radius:19px;gap:11px}.play{flex-basis:48px;width:48px;height:48px}.play svg{width:23px;height:23px}.name{font-size:16px}.credit{font-size:12px;margin-top:3px}.footer{margin-top:12px}.all{font-size:12px;padding:7px 12px}}
+@media(max-width:380px){.lv-listen-v2{padding-left:20px;padding-right:20px}}
+</style></head><body>
+<section class="lv-listen-v2"><div class="inner"><h2>Önce dinleyin</h2><p class="subtitle">LUMA içeriklerinden örnekler</p><div class="grid">
+<article class="card"><button class="play" type="button" aria-label="Hayvan Sesleri oynat"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 19 12 8 19Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></button><div class="info"><div class="name"><strong>Hayvan Sesleri</strong><span> · şarkı</span></div><div class="credit">MiniYo</div></div><audio preload="none" controls src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/02Hayvan-Sesleri-preview.mp3"></audio></article>
+<article class="card"><button class="play" type="button" aria-label="Mış Gibi oynat"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 19 12 8 19Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></button><div class="info"><div class="name"><strong>Mış Gibi</strong><span> · hikaye</span></div><div class="credit">Peter H. Reynolds · Altın Kitaplar</div></div><audio preload="none" controls src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/16Mis-gibi-preview.mp3"></audio></article>
+<article class="card"><button class="play" type="button" aria-label="Brahms Ninnisi oynat"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 19 12 8 19Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></button><div class="info"><div class="name"><strong>Brahms Ninnisi</strong><span> · ninni</span></div><div class="credit">MiniYo</div></div><audio preload="none" controls src="https://raw.githubusercontent.com/gozde-lumaverse/audio-previews/main/01Brahms-Ninnisi-preview.mp3"></audio></article>
+</div><div class="footer"><a class="all" href="https://lumaverse.net/pages/luma-icerik" target="_top">Tüm içerikler <span aria-hidden="true">→</span></a></div></div></section>
+<script>
+(function(){
+ var cards=Array.from(document.querySelectorAll('.card'));
+ cards.forEach(function(card){
+  var button=card.querySelector('.play'),audio=card.querySelector('audio');
+  button.addEventListener('click',function(){
+   if(audio.paused){cards.forEach(function(c){if(c!==card)c.querySelector('audio').pause()});var p=audio.play();if(p&&p.catch)p.catch(function(){card.classList.add('error')});}
+   else audio.pause();
+  });
+  audio.addEventListener('play',function(){card.classList.add('playing');button.setAttribute('aria-label','Duraklat')});
+  function stop(){card.classList.remove('playing');button.setAttribute('aria-label','Oynat')}
+  audio.addEventListener('pause',stop);audio.addEventListener('ended',stop);audio.addEventListener('error',function(){card.classList.add('error')});
+ });
+})();
+</script></body></html>
